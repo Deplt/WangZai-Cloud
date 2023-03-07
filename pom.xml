@@ -5,7 +5,13 @@
 
     <groupId>com.wangzai</groupId>
     <artifactId>wangzai</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0</version>
+    <modules>
+        <module>wangzai-gateway</module>
+        <module>wangzai-common</module>
+        <module>wangzai-modules</module>
+    </modules>
 
     <name>wangzai-cloud</name>
     <url>www.zhujianhe.vip</url>
@@ -15,7 +21,73 @@
     <properties>
         <wangzaicloud.version>1.0.0</wangzaicloud.version>
         <java.version>1.8</java.version>
+        <spring-boot.version>2.5.2</spring-boot.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <knife4j.version>2.0.8</knife4j.version>
+        <swagger.fox.version>3.0.0</swagger.fox.version>
+        <swagger.core.version>1.6.2</swagger.core.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- SpringBoot 依赖配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringCloud 微服务 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringCloud Alibaba 微服务 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 核心模块 -->
+            <dependency>
+                <groupId>com.wangzai</groupId>
+                <artifactId>wangzai-common-core</artifactId>
+                <version>${wangzaicloud.version}</version>
+            </dependency>
+
+            <!-- swagger模块 -->
+            <dependency>
+                <groupId>com.wangzai</groupId>
+                <artifactId>wangzai-common-swagger</artifactId>
+                <version>${wangzaicloud.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 引入该包加载bootstrap.yml配置 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

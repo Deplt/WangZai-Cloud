@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.wangzai.common.swagger.config.SwaggerAutoConfiguration

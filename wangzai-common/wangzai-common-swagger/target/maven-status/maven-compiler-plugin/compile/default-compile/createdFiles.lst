@@ -1,0 +1,5 @@
+com\wangzai\common\swagger\config\SwaggerProperties$AuthorizationScope.class
+com\wangzai\common\swagger\config\SwaggerProperties$Contact.class
+com\wangzai\common\swagger\config\SwaggerProperties.class
+com\wangzai\common\swagger\config\SwaggerProperties$Authorization.class
+com\wangzai\common\swagger\config\SwaggerAutoConfiguration.class
