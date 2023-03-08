@@ -20,13 +20,13 @@ spring:
     nacos:
       # 服务注册发现中心地址以及命名空间
       discovery:
-        server-addr: 134.175.220.14:8848
+        server-addr: localhost:8848
         namespace: 5d8cf7a2-29c1-450f-a99f-9cd00eee9f27
       # 服务注册配置中心地址以及命名空间
       config:
-        server-addr: 134.175.220.14:8848
+        server-addr: localhost:8848
         file-extension: yaml
-        prefix: ztf
+        prefix: prod
         namespace: 5d8cf7a2-29c1-450f-a99f-9cd00eee9f27
 
 
