@@ -40,6 +40,11 @@
             <artifactId>wangzai-common-swagger</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.wangzai</groupId>
+            <artifactId>wangzai-common-redis</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

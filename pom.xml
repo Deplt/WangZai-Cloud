@@ -72,6 +72,13 @@
                 <artifactId>wangzai-common-swagger</artifactId>
                 <version>${wangzaicloud.version}</version>
             </dependency>
+
+            <!-- redis模块 -->
+            <dependency>
+                <groupId>com.wangzai</groupId>
+                <artifactId>wangzai-common-redis</artifactId>
+                <version>${wangzaicloud.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

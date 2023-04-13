@@ -18,6 +18,7 @@
     <modules>
         <module>wangzai-common-core</module>
         <module>wangzai-common-swagger</module>
+        <module>wangzai-common-redis</module>
     </modules>
 
 
