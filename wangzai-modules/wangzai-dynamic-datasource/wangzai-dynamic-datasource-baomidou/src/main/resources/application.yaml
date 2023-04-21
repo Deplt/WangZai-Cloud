@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    dynamic:
+      primary: order_db_1
+      datasource:
+        order_db_1:
+          type: com.alibaba.druid.pool.DruidDataSource
+          url: jdbc:mysql://192.168.128.10:3306/order_db_1
+          driver-class-name: com.mysql.jdbc.Driver
+          username: root
+          password: Deplt.0629
+        order_db_2:
+          type: com.alibaba.druid.pool.DruidDataSource
+          url: jdbc:mysql://192.168.128.10:3306/order_db_2
+          driver-class-name: com.mysql.jdbc.Driver
+          username: root
+          password: Deplt.0629

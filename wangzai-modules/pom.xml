@@ -18,6 +18,8 @@
 
     <modules>
         <module>wangzai-order</module>
+        <module>wangzai-jsoup</module>
+        <module>wangzai-dynamic-datasource</module>
     </modules>
 
 </project>

@@ -3,24 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>wangzai</artifactId>
+        <artifactId>wangzai-modules</artifactId>
         <groupId>com.wangzai</groupId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wangzai-common</artifactId>
+    <artifactId>wangzai-dynamic-datasource</artifactId>
     <packaging>pom</packaging>
-
-    <description>
-        通用模块
-    </description>
     <modules>
-        <module>wangzai-common-core</module>
-        <module>wangzai-common-swagger</module>
-        <module>wangzai-common-redis</module>
-        <module>wangzai-common-kafka</module>
+        <module>wangzai-dynamic-datasource-sharding-jdbc</module>
+        <module>wangzai-dynamic-datasource-baomidou</module>
     </modules>
-
 
 </project>

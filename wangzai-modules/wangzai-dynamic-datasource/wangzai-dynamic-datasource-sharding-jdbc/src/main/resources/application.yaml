@@ -1,0 +1,53 @@
+spring:
+  # ShardingSphere 配置项
+  shardingsphere:
+    datasource:
+      # 所有数据源的名字
+      names: order1, order2
+      # 订单 orders 数据源配置
+      order1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.128.10:3306/order_db_1?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+        username: root
+        password: Deplt.0629
+      # 订单 users 数据源配置
+      order2:
+        type: com.alibaba.druid.pool.DruidDataSource # 使用 Hikari 数据库连接池
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.128.10:3306/order_db_2?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+        username: root
+        password: Deplt.0629
+    sharding:
+      tables:
+        order:
+          # 分库策略
+          database-strategy:
+            inline:
+              sharding-column: user_id
+              algorithm-expression: order$->{user_id % 2 + 1}
+          # 数据分布情况
+          actual-data-nodes: order$->{1..2}.t_order_$->{1..2}
+          # 分表策略
+          table-strategy:
+            inline:
+              sharding-column: order_id
+              algorithm-expression: t_order_$->{order_id % 2 + 1}
+    props:
+      sql:
+        show: true
+      # 主库从库逻辑数据定义 大部分情况下用于读写分离
+
+#      master-slave-rules:
+#        ds0:
+#          master-data-source-name: m0
+#          slave-data-source-names: s0
+#        ds1:
+#          master-data-source-name: m1
+#          slave-data-source-names: s1
+
+
+# mybatis 配置内容
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

@@ -5,9 +5,12 @@ import com.wangzai.order.common.Rest;
 import com.wangzai.order.model.Order;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 /***
  *
@@ -19,6 +22,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class OrderController {
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
 
     @ApiOperation(value = "查询订单列表")
@@ -40,7 +46,12 @@ public class OrderController {
     }
 
 
-
+    @ApiOperation(value =  "获取所有keys")
+    @GetMapping("/getKeys")
+    public void testRedis() {
+        Set keys = redisTemplate.keys("*");
+        System.out.println(keys);
+    }
 
 
 }
